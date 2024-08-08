@@ -1,0 +1,84 @@
+
+version: 2
+
+models:
+  - name: staging_superstore_sales
+    description: "Preprocessing raw data"
+    tags: ["staging"]
+    columns:
+      - name: Order_Priority
+        description: "The priority of order"
+        data_tests:
+          - text
+      - name: Discount
+        description: "The priority of order"
+        data_tests:
+          - float
+      - name: Unit_Price
+        description: "The price of 1 unit"
+        data_tests:
+          - float
+      - name: Shipping_Cost
+        description: "Cost of shipping"
+        data_tests:
+          - float
+      - name: Customer_ID
+        description: "ID of customer"
+        data_tests:
+          - int
+      - name: Customer_Name
+        description: "The name of customer"
+        data_tests:
+          - text
+      - name: Ship_Mode
+        description: "Type of shipping"
+        data_tests:
+          - text
+      - name: Customer_Segment
+        description: "Type of customers"
+        data_tests:
+          - text
+      - name: Product_Category
+        description: "Product general catègory"
+        data_tests:
+          - text
+      - name: Product_Container
+        description: "The border of product when shipping"
+        data_tests:
+          - text
+      - name: Product_Name
+        description: "Product Name"
+        data_tests:
+          - text
+      - name: Product_Base_Margin
+        description: "The base of product "
+        data_tests:
+          - float
+      - name: Region
+        description: "Region of customer"
+        data_tests:
+          - text
+      - name: State_Or_Province
+        description: "State_Or_Province of customer"
+        data_tests:
+          - text
+      - name: City
+        description: "City of customer"
+        data_tests:
+          - text
+      - name: Order_Date
+        description: "Order_Date"
+      - name: Ship_Date
+        description: "Ship_Date" 
+      - name: Profit
+        description: "Profit of order"
+      - name: Quantity_Ordered_new
+        description: ""
+      - name: Sales
+        description: "The sale of order detail"
+        data_tests:
+          - float
+      - name: Order_ID
+        description: "order id of order detail"
+        data_tests:
+          - int

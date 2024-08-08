@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  minio:
+    image: quay.io/minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./minio/data:/data
+    environment:
+      MINIO_ROOT_USER: ROOTNAME
+      MINIO_ROOT_PASSWORD: CHANGEME123
+    command: server /data --console-address ":9001"
+    networks:
+      - elt_network
+
+  postgres_1:
+    image: postgres:15
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: destination_1
+      POSTGRES_USER: vohoang
+      POSTGRES_PASSWORD: 12345678
+    networks:
+      - elt_network
+    depends_on:
+      - minio
+      
+  # dbt:
+  #   image: ghcr.io/dbt-labs/dbt-postgres:1.7.17
+  #   command:
+  #     [
+  #       "run",
+  #       "--profiles-dir",
+  #       "/root",
+  #       "--project-dir",
+  #       "/dbt",
+  #       "--full-refresh"
+  #     ]
+  #   networks:
+  #     - elt_network
+  #   volumes:
+  #     - ./src/transform_data:/dbt
+  #     - ./.dbt:/root
+  #   environment:
+  #     DBT_PROFILE: default
+  #     DBT_TARGET: dev
+
+networks:
+  elt_network:
+    driver: bridge

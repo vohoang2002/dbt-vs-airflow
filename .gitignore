@@ -1,0 +1,12 @@
+airbyte/
+custom-elt-project/
+
+src/dbt-env/
+src/logs/
+
+airflow/cofig
+airflow/plugin
+airflow/logs
+airflow/.env
+minio/credentials.json
+minio/credentials.Zone.Identifier

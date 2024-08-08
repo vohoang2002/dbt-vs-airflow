@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: source_1
+    description: "Raw data from 1 SuperStore in US in the first haft of 2015."
+    database: destination_1
+    schema: public
+    tables:
+      - name: report
+        description: "raw data"

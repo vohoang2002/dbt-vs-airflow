@@ -1,0 +1,14 @@
+transform_data:
+  outputs:
+    dev_source_1:
+      type: postgres
+      host: host.docker.internal
+      port: 5433
+      user: vohoang
+      pass: '12345678'
+      dbname: destination_1
+      schema: public
+      threads: 2
+  
+  # nếu source không được chỉ định thì mặc định sẽ là dev_source1
+  target: dev_source_1
